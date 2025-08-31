@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://cb3qg4u8uy6st"]
+
+[ext_resource type="Texture2D" uid="uid://d0v87cbpixr6e" path="res://Asset/PixelSpaceRage/256px/Enemy01_Green_Frame_1_png_processed.png" id="1_adyog"]
+[ext_resource type="Script" uid="uid://cm2opg3jyttq8" path="res://Script/enamy.gd" id="1_eh28i"]
+[ext_resource type="Texture2D" uid="uid://bnormtqnfjfuf" path="res://Asset/PixelSpaceRage/256px/Enemy01_Green_Frame_2_png_processed.png" id="2_eh28i"]
+[ext_resource type="Texture2D" uid="uid://k3aixuk201as" path="res://Asset/PixelSpaceRage/256px/Enemy01_Green_Frame_3_png_processed.png" id="3_rf433"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v5xts"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_adyog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_eh28i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rf433")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yq0u3"]
+radius = 21.5407
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_eh28i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v5xts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_yq0u3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

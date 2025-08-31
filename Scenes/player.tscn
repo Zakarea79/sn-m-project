@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://bw6chtg61hcip"]
+
+[ext_resource type="Script" uid="uid://b6b02xj1y11a8" path="res://Script/player.gd" id="1_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://cmthytnawra7s" path="res://Asset/PixelSpaceRage/256px/PlayerBlue_Frame_01_png_processed.png" id="2_vgqql"]
+[ext_resource type="Texture2D" uid="uid://to1qw6wnkkxg" path="res://Asset/PixelSpaceRage/256px/PlayerBlue_Frame_02_png_processed.png" id="3_fkybt"]
+[ext_resource type="Texture2D" uid="uid://csn30jsonms26" path="res://Asset/PixelSpaceRage/256px/PlayerBlue_Frame_03_png_processed.png" id="4_x3wgy"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3smsa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vgqql")
+}],
+"loop": true,
+"name": &"Idel",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vgqql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fkybt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_x3wgy")
+}],
+"loop": true,
+"name": &"rotate_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
+radius = 22.0227
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_cvnsp")
+
+[node name="player_sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_3smsa")
+animation = &"rotate_animation"
+autoplay = "Idel"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cvnsp")

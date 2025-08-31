@@ -1,0 +1,7 @@
+res://Script/player.gd
+res://Scenes/main.tscn
+res://Scenes/player.tscn
+res://Scenes/enamy.tscn
+res://Scenes/Bullet.tscn
+res://Scenes/Bullet_enemy.tscn
+res://Scenes/enamy folder/enemay-0.tscn

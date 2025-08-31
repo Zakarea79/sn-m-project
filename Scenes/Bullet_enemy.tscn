@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ctqb02ncksr13"]
+
+[ext_resource type="Script" uid="uid://bbgbboyi70afj" path="res://Script/bullet.gd" id="1_atjpw"]
+[ext_resource type="Texture2D" uid="uid://xpl1qgs31r5v" path="res://Asset/PixelSpaceRage/256px/Explosion02_Frame_02_png_processed.png" id="2_llk6f"]
+[ext_resource type="Texture2D" uid="uid://coouuc8noduvw" path="res://Asset/PixelSpaceRage/256px/Explosion02_Frame_03_png_processed.png" id="3_ig8xh"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lixm3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_llk6f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ig8xh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_14k46"]
+radius = 6.32456
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_atjpw")
+is_player = false
+metadata/bullet_enamy = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -1)
+scale = Vector2(0.796875, 0.796875)
+sprite_frames = SubResource("SpriteFrames_lixm3")
+frame_progress = 0.675669
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_14k46")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://u50ftan6v8ou"]
+
+[ext_resource type="PackedScene" uid="uid://cb3qg4u8uy6st" path="res://Scenes/enamy.tscn" id="1_jgnt3"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+rotation = 2.37506
+rotates = false
+
+[node name="Enamy" parent="." instance=ExtResource("1_jgnt3")]
+position = Vector2(2.82793, -0.0533524)
+rotation = -2.37506
