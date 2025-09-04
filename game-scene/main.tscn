@@ -187,7 +187,9 @@ point_count = 4
 
 [node name="Main" type="Node2D" node_paths=PackedStringArray("path_2d")]
 script = ExtResource("1_nwwfm")
-path_2d = [NodePath("Path2D-1"), NodePath("Path2D-2")]
+path_2d = [NodePath("path_2d/Path2D-1"), NodePath("path_2d/Path2D-2")]
+
+[node name="move_action" type="Node2D" parent="."]
 
 [node name="Backgrunds" type="AnimatedSprite2D" parent="."]
 position = Vector2(247, 422)
@@ -237,10 +239,12 @@ position = Vector2(222, 683)
 HP_TXT = NodePath("../UI2/txt_HP")
 SCORE_TXT = NodePath("../UI2/txt_SCore")
 
-[node name="Path2D-1" type="Path2D" parent="."]
+[node name="path_2d" type="Node2D" parent="."]
+
+[node name="Path2D-1" type="Path2D" parent="path_2d"]
 curve = SubResource("Curve2D_aa8k8")
 
-[node name="Path2D-2" type="Path2D" parent="."]
+[node name="Path2D-2" type="Path2D" parent="path_2d"]
 curve = SubResource("Curve2D_kqrg6")
 
 [node name="Camera2D" type="Camera2D" parent="."]

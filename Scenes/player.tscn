@@ -11,9 +11,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_vgqql")
 }],
-"loop": true,
+"loop": false,
 "name": &"Idel",
-"speed": 5.0
+"speed": 0.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -25,9 +25,9 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("4_x3wgy")
 }],
-"loop": true,
+"loop": false,
 "name": &"rotate_animation",
-"speed": 5.0
+"speed": 15.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cvnsp"]
@@ -38,7 +38,7 @@ script = ExtResource("1_cvnsp")
 
 [node name="player_sprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3smsa")
-animation = &"rotate_animation"
+animation = &"Idel"
 autoplay = "Idel"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
