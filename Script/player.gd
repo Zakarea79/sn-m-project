@@ -8,8 +8,13 @@ var hp: int:
 		if HP < 0: HP = 0
 		HP_TXT.text = "HP = " + str(HP)
 		modulate = Color.RED
-		if HP == 0: queue_free() # play some animtion
+		if HP == 0:
+			get_tree().current_scene.player_dide = true
+			# queue_free() # play some animtion
+			
 		await get_tree().create_timer(.1).timeout
+		if get_tree().current_scene.player_dide == true:
+			get_tree().change_scene_to_file("res://game-scene/main_menue.tscn")
 		modulate = Color("ffffff")
 	get:
 		return HP
@@ -34,17 +39,17 @@ enum _move_action
 	left, right, non
 }
 
-var before_distance = null
-var current_distance = null
-var before_direction: _move_action = _move_action.non
-
 func move_ment(pos: Vector2, touch: bool) -> void:
 	play_animtion()
 	if touch == true:
-		global_position = + pos
+		global_position = pos
 	else:
 		global_position += pos * speed
-	
+
+var before_distance = null
+var current_distance = null
+
+
 var first_time_get_directiton = true
 func move_action() -> _move_action:
 	if touch_pos == null:
@@ -53,34 +58,32 @@ func move_action() -> _move_action:
 	
 	if first_time_get_directiton == true:
 		first_time_get_directiton = false
-		before_direction = current_distance
+		before_distance = current_distance
 		return move_action()
 
-	if before_distance == null:
+	if current_distance > before_distance:
 		before_distance = int(current_distance)
-		return _move_action.non
+		return _move_action.right
+	elif current_distance < before_distance:
+		before_distance = int(current_distance)
+		return _move_action.left
 	else:
-		if current_distance > before_distance:
-			before_distance = int(current_distance)
-			return _move_action.right
-		elif current_distance < before_distance:
-			before_distance = int(current_distance)
-			return _move_action.left
-		else:
-			before_distance = int(current_distance)
-			# print(before_distance , " " , current_distance)
-			return _move_action.non
-			
+		return _move_action.non
+		
+
+var before_direction = null
+
 func play_animtion() -> void:
-	var mo_ac: _move_action = move_action()
-	if before_direction == _move_action.non:
-		before_direction = mo_ac
-	if mo_ac == _move_action.left and before_direction != mo_ac:
-		before_direction = mo_ac
+	var current_direction: _move_action = move_action()
+	if before_direction == null:
+		before_direction = current_direction
+		return
+	if current_direction == _move_action.left and before_direction != current_direction:
+		before_direction = current_direction
 		player_sprite.flip_h = false
 		player_sprite.play("rotate_animation")
-	elif mo_ac == _move_action.right and before_direction != mo_ac:
-		before_direction = mo_ac
+	elif current_direction == _move_action.right and before_direction != current_direction:
+		before_direction = current_direction
 		player_sprite.flip_h = true
 		player_sprite.play("rotate_animation")
 
@@ -97,13 +100,11 @@ func _input(event) -> void:
 		drag_whit_touch = false
 		finger_on_scrine = false
 		touch_pos = null
-		print("un finger")
 		return
 
 	if event is InputEventScreenDrag or event is InputEventScreenTouch:
 		touch_pos = event.position + Vector2(0, -space_from_finger)
 		finger_on_scrine = true
-		print("finger")
 		if global_position.distance_to(touch_pos) < destance_touch:
 			drag_whit_touch = true
 		if drag_whit_touch == true:
@@ -115,6 +116,9 @@ var pos_move_action: Node2D
 func _process(delta: float) -> void:
 	if finger_on_scrine == false and player_sprite.animation != "Idel":
 		player_sprite.play("Idel")
+	# if finger_on_scrine == true and move_action() == _move_action.non:
+	# 	print("dont move")
+	# play_animtion();
 
 	pos_move_action.position = Vector2(0, position.y)
 

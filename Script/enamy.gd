@@ -5,21 +5,23 @@ var corners: Dictionary
 var speed: int = 300
 var player = null
 
-func _ready() -> void:
+func _ready() -> void: 
 	World = get_tree().current_scene
-	player = get_tree().current_scene.get_node("Player")
-	path_follow_2d = get_parent()
-	_fier(.7)
+	if World.player_dide == false:
+		player = get_tree().current_scene.get_node("Player")
+		path_follow_2d = get_parent()
+		_fier(.7)
 	
 var path_follow_2d: PathFollow2D
 var Path_movement : bool = true
 func _process(delta: float) -> void:
-	if ex != null:
-		ex.global_position = global_position
-	if Path_movement == true:
-		path_movement(delta)
-	else :
-		random_movement(delta)
+	if World.player_dide == false:
+		if ex != null:
+			ex.global_position = global_position
+		if Path_movement == true:
+			path_movement(delta)
+		else :
+			random_movement(delta)
 
 var im_destroy: bool = false
 var run_one_time: bool = false
@@ -39,7 +41,6 @@ func _on_area_entered(area: Area2D) -> void:
 			
 func _on_body_entered(body: Node2D) -> void:
 		if body.name == "Player":
-			
 			if player != null and run_one_time == false:
 				body.hp -= 10
 				run_one_time = true

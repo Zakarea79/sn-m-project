@@ -3,5 +3,6 @@ res://Scenes/enamy.tscn::dc5de2d75fb55e2a3e80da5af548f910::1756834702::res://.go
 res://Scenes/player.tscn::03b781b9f7ea14fc34bc8549e8c8913d::1756834702::res://.godot/exported/133200997/export-1753c997600d68ab5d20ae99fddb15c6-player.scn
 res://Scenes/Bullet_enemy.tscn::fdef1343aee4320a1d3d6a104db23979::1756834702::res://.godot/exported/133200997/export-ec054ffb24981a9fa98a288a01682b14-Bullet_enemy.scn
 res://Scenes/enamy folder/enemay-0.tscn::4c695088d2906252a38107df5d0039d5::1757009126::res://.godot/exported/133200997/export-6afb92ba9da31cb185bc1ff5d740dc73-enemay-0.scn
-res://game-scene/main.tscn::85b06a512a03f2b4c028da27f47759a7::1757009126::res://.godot/exported/133200997/export-9cda482c931e63d828e0d408f405cc08-main.scn
+res://game-scene/main.tscn::85b06a512a03f2b4c028da27f47759a7::1758022060::res://.godot/exported/133200997/export-9cda482c931e63d828e0d408f405cc08-main.scn
 res://Scenes/Explosion/explosion_type_one.tscn::caa23eadc6417db995e92948fb22812d::1757009126::res://.godot/exported/133200997/export-6ded9a46b973ff353d2ce7c3eb2daa12-explosion_type_one.scn
+res://game-scene/main_menue.tscn::2f53622d41071519a7258d5d01cd5ff3::1758479117::res://.godot/exported/133200997/export-eca995d24af22be30dac8209c516b99e-main_menue.scn

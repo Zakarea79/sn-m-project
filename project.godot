@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="sn-m-project"
-run/main_scene="uid://bw5fy65dg050y"
-config/features=PackedStringArray("4.4", "GL Compatibility")
+run/main_scene="uid://fv2dxocvkh66"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
 
 [display]

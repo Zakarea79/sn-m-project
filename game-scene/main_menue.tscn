@@ -1,0 +1,284 @@
+[gd_scene load_steps=10 format=3 uid="uid://fv2dxocvkh66"]
+
+[ext_resource type="Script" uid="uid://dnlfh7j4dhd2p" path="res://Script/main_menue.gd" id="1_lxuu0"]
+[ext_resource type="Texture2D" uid="uid://x6knxy61wsd7" path="res://Asset/Small 512x512/Purple Nebula/Purple_Nebula_05-512x512.png" id="1_wk062"]
+[ext_resource type="Texture2D" uid="uid://cqrk87fwvbmij" path="res://Asset/simple.png" id="2_xe0dh"]
+[ext_resource type="Texture2D" uid="uid://c8mnifeayg5w8" path="res://Asset/sound.png" id="3_42onp"]
+[ext_resource type="Texture2D" uid="uid://cwtul2uqdcukv" path="res://Asset/music.png" id="3_wk062"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe0dh"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 128
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+corner_radius_bottom_left = 128
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqs18"]
+bg_color = Color(0.699653, 0.699653, 0.699653, 1)
+corner_radius_top_left = 128
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+corner_radius_bottom_left = 128
+shadow_size = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tsmwc"]
+bg_color = Color(0.783523, 0.783523, 0.783523, 1)
+corner_radius_top_left = 128
+corner_radius_top_right = 128
+corner_radius_bottom_right = 128
+corner_radius_bottom_left = 128
+shadow_size = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tsmwc"]
+
+[node name="main_menue" type="Control" node_paths=PackedStringArray("setting", "main_menue")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lxuu0")
+setting = NodePath("Setting")
+main_menue = NodePath("Menue")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_wk062")
+
+[node name="Menue" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -100.0
+offset_right = 130.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="btn-start" type="Button" parent="Menue"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe0dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqs18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tsmwc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsmwc")
+text = "START"
+
+[node name="btn-option" type="Button" parent="Menue"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe0dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqs18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tsmwc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsmwc")
+text = "OPTION"
+
+[node name="btn-exit" type="Button" parent="Menue"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe0dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqs18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tsmwc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsmwc")
+text = "EXIT"
+
+[node name="Setting" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -117.0
+offset_right = 125.0
+offset_bottom = 117.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_xe0dh")
+expand_mode = 1
+
+[node name="txt-seting" type="Label" parent="Setting"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.0
+offset_top = 27.0
+offset_right = 44.0
+offset_bottom = 66.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "SETTING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="value-sound" type="HScrollBar" parent="Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -37.0
+offset_right = 73.0
+offset_bottom = -17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="txt-sound" type="Label" parent="Setting/value-sound"]
+layout_mode = 0
+offset_left = -62.0
+offset_top = -2.0
+offset_right = -4.0
+offset_bottom = 21.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "SOUND"
+
+[node name="btn-sound" type="Button" parent="Setting/value-sound"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe0dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqs18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tsmwc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsmwc")
+
+[node name="TextureRect" type="TextureRect" parent="Setting/value-sound/btn-sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wk062")
+expand_mode = 1
+
+[node name="value-music" type="HScrollBar" parent="Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = 3.0
+offset_right = 73.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="txt-music" type="Label" parent="Setting/value-music"]
+layout_mode = 0
+offset_left = -61.0
+offset_right = -10.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MUSIC"
+
+[node name="btn-music" type="Button" parent="Setting/value-music"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -12.0
+offset_right = 30.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe0dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqs18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tsmwc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsmwc")
+
+[node name="TextureRect" type="TextureRect" parent="Setting/value-music/btn-music"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_42onp")
+expand_mode = 1
+
+[node name="btn-stave" type="Button" parent="Setting"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 63.0
+offset_right = 69.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe0dh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqs18")
+theme_override_styles/hover = SubResource("StyleBoxFlat_tsmwc")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_tsmwc")
+text = "    Save and Close    "
+
+[connection signal="button_up" from="Menue/btn-start" to="." method="_on_btnstart_button_up"]
+[connection signal="button_up" from="Menue/btn-option" to="." method="_on_btnoption_button_up"]
+[connection signal="button_up" from="Menue/btn-exit" to="." method="_on_btnexit_button_up"]
+[connection signal="button_up" from="Setting/value-sound/btn-sound" to="." method="_on_btnsound_button_up"]
+[connection signal="button_up" from="Setting/value-music/btn-music" to="." method="_on_btnmusic_button_up"]
+[connection signal="button_up" from="Setting/btn-stave" to="." method="_on_btnstave_button_up"]
